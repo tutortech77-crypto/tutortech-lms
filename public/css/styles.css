@@ -1,0 +1,83 @@
+/* TutorTech LMS Custom Styles & Google Classroom Theme Enhancements */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-brand: 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --tt-primary: #1a73e8;
+  --tt-primary-dark: #1557b0;
+  --tt-secondary: #0d9488;
+  --tt-meet: #00796b;
+  --tt-surface: #ffffff;
+  --tt-bg: #f8fafc;
+  --tt-text: #1f2937;
+  --tt-muted: #64748b;
+  --tt-border: #e2e8f0;
+}
+
+body {
+  font-family: var(--font-brand);
+  background-color: var(--tt-bg);
+  color: var(--tt-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Pulsing Live indicator */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.live-badge-pulse {
+  animation: pulse-ring 2s infinite;
+}
+
+/* Glassmorphism & Modern Card Shadows */
+.card-shadow {
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.12), 0 4px 8px 3px rgba(60, 64, 67, 0.06);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-shadow:hover {
+  box-shadow: 0 4px 12px 0 rgba(60, 64, 67, 0.2), 0 8px 16px 4px rgba(60, 64, 67, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Tab active indicator */
+.tab-active {
+  color: #1a73e8;
+  border-bottom: 3px solid #1a73e8;
+  font-weight: 600;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Sketch canvas styling */
+#sketchCanvas {
+  touch-action: none;
+  cursor: crosshair;
+  background-color: #ffffff;
+}

@@ -1,0 +1,285 @@
+{
+  "users": [
+    {
+      "id": "usr_admin",
+      "username": "admin",
+      "email": "admin@tutortech.com",
+      "password": "admin123",
+      "fullName": "Dr. Robert Vance (Director / Lead Tutor)",
+      "role": "teacher",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "phone": "+1 (555) 019-2834",
+      "bio": "Senior Tutor & Head of Science & Math at TutorTech"
+    },
+    {
+      "id": "usr_stu_1",
+      "username": "alex.turner",
+      "email": "alex@tutortech.com",
+      "password": "alex123",
+      "fullName": "Alex Turner",
+      "role": "student",
+      "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80",
+      "enrolledClasses": [
+        "cls_physics_ap",
+        "cls_math_adv",
+        "cls_sat_prep"
+      ],
+      "grade": "Grade 11"
+    },
+    {
+      "id": "usr_stu_2",
+      "username": "sarah.khan",
+      "email": "sarah@tutortech.com",
+      "password": "sarah123",
+      "fullName": "Sarah Khan",
+      "role": "student",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "enrolledClasses": [
+        "cls_physics_ap",
+        "cls_chem_ib"
+      ],
+      "grade": "Grade 10"
+    },
+    {
+      "id": "usr_stu_3",
+      "username": "david.lee",
+      "email": "david@tutortech.com",
+      "password": "david123",
+      "fullName": "David Lee",
+      "role": "student",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "enrolledClasses": [
+        "cls_math_adv",
+        "cls_sat_prep"
+      ],
+      "grade": "Grade 12"
+    },
+    {
+      "id": "usr_stu_1792566261150",
+      "username": "michael.s",
+      "fullName": "Michael Scott",
+      "email": "michael.s@tutortech.com",
+      "password": "pass123",
+      "role": "student",
+      "grade": "Grade 11",
+      "enrolledClasses": [
+        "cls_physics_ap"
+      ],
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=michael.s"
+    }
+  ],
+  "classes": [
+    {
+      "id": "cls_physics_ap",
+      "name": "AP Physics 1: Mechanics & Energy",
+      "subject": "Physics",
+      "section": "Cohort Alpha - 2026",
+      "tutorName": "Dr. Robert Vance",
+      "tutorEmail": "admin@tutortech.com",
+      "scheduleDays": "Mon, Wed, Fri",
+      "scheduleTime": "04:30 PM - 05:45 PM",
+      "nextSessionIso": "2026-10-21T07:29:10.061Z",
+      "meetLink": "https://meet.google.com/tut-tech-phy",
+      "boardLink": "https://excalidraw.com/#room=tutortech-physics-room",
+      "themeColor": "from-blue-600 to-indigo-800",
+      "accentColor": "#3b82f6",
+      "bannerImage": "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=1200&auto=format&fit=crop&q=80",
+      "description": "Comprehensive AP Physics 1 covering Kinematics, Dynamics, Newton's Laws, Work-Energy Theorem, and Rotational Motion with live problem-solving."
+    },
+    {
+      "id": "cls_math_adv",
+      "name": "Advanced Calculus & Algebra Mastery",
+      "subject": "Mathematics",
+      "section": "Honors Track B",
+      "tutorName": "Prof. Elena Rostova",
+      "tutorEmail": "elena@tutortech.com",
+      "scheduleDays": "Tue, Thu, Sat",
+      "scheduleTime": "06:00 PM - 07:15 PM",
+      "nextSessionIso": "2026-10-21T10:04:10.061Z",
+      "meetLink": "https://meet.google.com/tut-math-adv",
+      "boardLink": "https://miro.com/app/board/tutortech-math-workspace/",
+      "themeColor": "from-emerald-600 to-teal-800",
+      "accentColor": "#10b981",
+      "bannerImage": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1200&auto=format&fit=crop&q=80",
+      "description": "Differential and Integral Calculus, Limits, Derivatives, and practical exam preparation with step-by-step whiteboard walkthroughs."
+    },
+    {
+      "id": "cls_chem_ib",
+      "name": "IB Chemistry HL: Bonding & Kinetics",
+      "subject": "Chemistry",
+      "section": "IB Diploma Year 1",
+      "tutorName": "Dr. Robert Vance",
+      "tutorEmail": "admin@tutortech.com",
+      "scheduleDays": "Mon, Thu",
+      "scheduleTime": "03:00 PM - 04:15 PM",
+      "nextSessionIso": "2026-10-22T07:04:10.061Z",
+      "meetLink": "https://meet.google.com/tut-chem-hl",
+      "boardLink": "https://excalidraw.com/#room=tutortech-chem-lab",
+      "themeColor": "from-amber-600 to-orange-800",
+      "accentColor": "#f59e0b",
+      "bannerImage": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&auto=format&fit=crop&q=80",
+      "description": "In-depth molecular structures, stoichiometry, reaction rates, chemical equilibrium, and past paper question dissections."
+    },
+    {
+      "id": "cls_sat_prep",
+      "name": "Digital SAT English & Math Crash Course",
+      "subject": "Test Prep",
+      "section": "Weekend Intensive",
+      "tutorName": "Sarah Jenkins, M.Ed.",
+      "tutorEmail": "jenkins@tutortech.com",
+      "scheduleDays": "Saturday & Sunday",
+      "scheduleTime": "11:00 AM - 01:00 PM",
+      "nextSessionIso": "2026-10-23T07:04:10.061Z",
+      "meetLink": "https://meet.google.com/tut-sat-live",
+      "boardLink": "https://excalidraw.com/#room=tutortech-sat-mastery",
+      "themeColor": "from-purple-600 to-violet-800",
+      "accentColor": "#8b5cf6",
+      "bannerImage": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&auto=format&fit=crop&q=80",
+      "description": "Master digital SAT Reading & Writing strategies, Desmos calculator shortcuts, high-frequency math shortcuts, and timed drills."
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ann_1",
+      "classId": "cls_physics_ap",
+      "author": "Dr. Robert Vance",
+      "authorRole": "Tutor",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-21T05:04:10.061Z",
+      "title": "Welcome to Today's Kinematics Session! 🚀",
+      "content": "Hi students! Please review Chapter 3 formula sheet before joining today's Google Meet. We will be using the interactive Excalidraw board for 2D projectile motion derivations. Keep your scientific calculators handy!",
+      "pinned": true
+    },
+    {
+      "id": "ann_2",
+      "classId": "cls_math_adv",
+      "author": "Prof. Elena Rostova",
+      "authorRole": "Tutor",
+      "avatar": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-20T13:04:10.061Z",
+      "title": "Weekly Homework Problem Set 4 Uploaded 📚",
+      "content": "The problem set for Derivatives and Chain Rule is now live in the Classwork tab. Please submit your step-by-step solutions in PDF format by this Friday midnight.",
+      "pinned": false
+    }
+  ],
+  "assignments": [
+    {
+      "id": "asg_phy_1",
+      "classId": "cls_physics_ap",
+      "title": "Homework 03: Projectile Motion & Vector Components",
+      "topic": "Unit 1: Kinematics",
+      "dueDate": "2026-10-24T07:04:10.061Z",
+      "points": 100,
+      "description": "Complete questions 1 through 8 from the attached PDF worksheet. Show all free-body vector diagrams and step-by-step kinematic equations. Upload your hand-written work as a scanned PDF or clear photos.",
+      "attachments": [
+        {
+          "name": "Unit-1-Kinematics-Homework-3.pdf",
+          "size": "2.4 MB",
+          "type": "pdf",
+          "url": "/sample-resources/Kinematics-Homework.pdf"
+        }
+      ]
+    },
+    {
+      "id": "asg_phy_2",
+      "classId": "cls_physics_ap",
+      "title": "Lab Report: Inclined Plane Friction Analysis",
+      "topic": "Unit 2: Dynamics & Friction",
+      "dueDate": "2026-10-28T07:04:10.061Z",
+      "points": 50,
+      "description": "Calculate static vs kinetic coefficient of friction using the experiment data sheet gathered during our last live session.",
+      "attachments": [
+        {
+          "name": "Friction-Lab-Template.pdf",
+          "size": "1.1 MB",
+          "type": "pdf",
+          "url": "/sample-resources/Friction-Lab.pdf"
+        }
+      ]
+    },
+    {
+      "id": "asg_math_1",
+      "classId": "cls_math_adv",
+      "title": "Calculus Drill 04: Implicit Differentiation & Related Rates",
+      "topic": "Differentiation Techniques",
+      "dueDate": "2026-10-25T07:04:10.061Z",
+      "points": 50,
+      "description": "Solve the 12 problems in the attached worksheet. Ensure dy/dx steps are clearly documented.",
+      "attachments": [
+        {
+          "name": "Implicit-Diff-Problem-Set.pdf",
+          "size": "1.8 MB",
+          "type": "pdf",
+          "url": "/sample-resources/Calculus-Drill.pdf"
+        }
+      ]
+    }
+  ],
+  "submissions": [
+    {
+      "id": "sub_1",
+      "assignmentId": "asg_phy_1",
+      "studentId": "usr_stu_1",
+      "studentName": "Alex Turner",
+      "submittedAt": "2026-10-21T02:04:10.061Z",
+      "status": "graded",
+      "grade": 96,
+      "feedback": "Fantastic derivation on question 6! Just be careful with vector angle sign conventions in question 4.",
+      "content": "Completed all 8 projectile motion questions with vector diagrams.",
+      "files": [
+        {
+          "name": "AlexTurner-Physics-HW3-Solutions.pdf",
+          "size": "3.1 MB",
+          "url": "/sample-resources/Kinematics-Homework.pdf"
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat_phy_1",
+      "classId": "cls_physics_ap",
+      "title": "Master Formula Sheet - AP Physics 1 (2026 Edition)",
+      "category": "Formula Sheets",
+      "description": "Official equations sheet with SI unit references and vector breakdown guides.",
+      "createdAt": "2026-10-19T07:04:10.061Z",
+      "file": {
+        "name": "AP-Physics-1-Equation-Sheet-TutorTech.pdf",
+        "size": "1.4 MB",
+        "url": "/sample-resources/AP-Physics-Formulas.pdf"
+      }
+    },
+    {
+      "id": "mat_phy_2",
+      "classId": "cls_physics_ap",
+      "title": "Lecture 03 Slides & Whiteboard Notes (Annotated)",
+      "category": "Lecture Notes",
+      "description": "Digital whiteboard notes exported from our Excalidraw session with live annotations.",
+      "createdAt": "2026-10-20T07:04:10.061Z",
+      "file": {
+        "name": "Kinematics-Lecture-03-Notes.pdf",
+        "size": "4.8 MB",
+        "url": "/sample-resources/Kinematics-Homework.pdf"
+      }
+    },
+    {
+      "id": "mat_math_1",
+      "classId": "cls_math_adv",
+      "title": "Derivative Rules & Trig Identities Quick Reference",
+      "category": "Study Guides",
+      "description": "Comprehensive 4-page cheat sheet for all standard and inverse trigonometric derivatives.",
+      "createdAt": "2026-10-18T07:04:10.061Z",
+      "file": {
+        "name": "Calculus-Derivatives-CheatSheet.pdf",
+        "size": "950 KB",
+        "url": "/sample-resources/Calculus-Drill.pdf"
+      }
+    }
+  ],
+  "tokens": {
+    "tt_61b6c73f14a9fe8e645c647a261e4924fef002bf149b64681f70046fc1ba0b4c": "usr_stu_1",
+    "tt_354c00f379186d075e0a71122508e9508e519d937002bb80d3ddf60fb5d8579b": "usr_admin",
+    "tt_1ce03c8830f5f41ee041f7d8373094203d980409d279e8621b1167af7744e197": "usr_stu_1792566261150",
+    "tt_e5dcf2c388135b8d960cd206d924a9c58ebb0073a61bb3cc4ef5e61bb9f88ca3": "usr_admin"
+  }
+}

@@ -1,0 +1,27 @@
+%PDF-1.4
+1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
+2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj
+3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >> endobj
+5 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj
+4 0 obj << /Length 608 >> stream
+BT /F1 20 Tf 50 720 Td (Unit 2: Inclined Plane Dynamics & Friction) Tj ET
+BT /F1 12 Tf 50 690 Td (TutorTech Online Tutoring Learning Management System) Tj ET
+BT /F1 10 Tf 50 670 Td (Date: October 2026 | tutortech.com) Tj ET
+BT /F1 12 Tf 50 630 Td (Experiment Objectives: Measure coefficient of static vs kinetic friction.) Tj ET
+BT /F1 12 Tf 50 606 Td (1. Set incline angle to 25 degrees with a 500g wooden block.) Tj ET
+BT /F1 12 Tf 50 582 Td (2. Record normal force Fn = mg cos(theta) and parallel force Fp = mg sin(theta).) Tj ET
+BT /F1 12 Tf 50 558 Td (3. Plot friction graph and calculate slope.) Tj ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000060 00000 n 
+0000000117 00000 n 
+0000000300 00000 n 
+0000000220 00000 n 
+trailer << /Size 6 /Root 1 0 R >>
+startxref
+500
+%%EOF
