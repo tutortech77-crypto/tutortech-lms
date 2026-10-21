@@ -70,16 +70,35 @@ const App = {
     const roleBadgeClass = this.currentUser.role === 'teacher' 
       ? 'bg-indigo-100 text-indigo-700' 
       : 'bg-emerald-100 text-emerald-700';
-    const roleText = this.currentUser.role === 'teacher' ? 'Tutor' : 'Student';
+    const roleText = this.currentUser.role === 'teacher' ? 'Lead Tutor / Owner' : 'Student';
 
     userArea.innerHTML = `
-      <div class="flex items-center gap-3">
-        <div class="hidden sm:flex flex-col text-right">
-          <span class="text-xs font-bold text-slate-800 leading-tight">${this.escape(this.currentUser.fullName)}</span>
-          <span class="text-[10px] font-medium ${roleBadgeClass} px-1.5 py-0.2 rounded-full self-end mt-0.5">${roleText}</span>
-        </div>
-        <img src="${this.currentUser.avatar || 'https://api.dicebear.com/7.x/bottts/svg?seed=' + this.currentUser.username}" 
-          class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm" alt="User">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Clickable Profile Pill -->
+        <button onclick="App.openProfileModal()" title="Edit Profile Name & Photo" 
+          class="flex items-center gap-2 p-1 sm:px-2.5 sm:py-1 rounded-xl hover:bg-slate-100 border border-transparent hover:border-slate-200 transition text-left group">
+          <div class="relative">
+            <img src="${this.currentUser.avatar || 'https://api.dicebear.com/7.x/bottts/svg?seed=' + this.currentUser.username}" 
+              class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm group-hover:ring-2 group-hover:ring-blue-500 transition" alt="User">
+            <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-blue-600 rounded-full text-white flex items-center justify-center text-[8px] shadow">
+              <i data-lucide="pencil" class="w-2 h-2"></i>
+            </span>
+          </div>
+          <div class="hidden sm:flex flex-col text-left">
+            <span class="text-xs font-bold text-slate-800 leading-tight group-hover:text-blue-600 transition flex items-center gap-1">
+              ${this.escape(this.currentUser.fullName)}
+            </span>
+            <span class="text-[9px] font-medium ${roleBadgeClass} px-1.5 py-0.2 rounded-full self-start mt-0.5">${roleText}</span>
+          </div>
+        </button>
+
+        <!-- Edit Profile Icon Button -->
+        <button onclick="App.openProfileModal()" title="Profile Settings" 
+          class="p-2 text-slate-500 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition">
+          <i data-lucide="user-cog" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Logout Button -->
         <button onclick="App.handleLogout()" title="Logout" 
           class="p-2 text-slate-400 hover:text-rose-600 hover:bg-slate-100 rounded-lg transition">
           <i data-lucide="log-out" class="w-4 h-4"></i>
@@ -1013,6 +1032,108 @@ const App = {
       this.switchClassTab('whiteboard');
     } else {
       window.open('https://excalidraw.com', '_blank');
+    }
+  },
+
+  // ==========================================
+  // PROFILE & ACCOUNT SETTINGS (OWNER / USER)
+  // ==========================================
+  openProfileModal() {
+    if (!this.currentUser) return;
+    document.getElementById('profileFullName').value = this.currentUser.fullName || '';
+    document.getElementById('profileEmail').value = this.currentUser.email || '';
+    document.getElementById('profileBio').value = this.currentUser.bio || '';
+    document.getElementById('profilePhone').value = this.currentUser.phone || '';
+    document.getElementById('profilePassword').value = '';
+    
+    const avatar = this.currentUser.avatar || 'https://api.dicebear.com/7.x/bottts/svg?seed=' + this.currentUser.username;
+    document.getElementById('profileAvatarUrl').value = avatar;
+    document.getElementById('profilePreviewImg').src = avatar;
+
+    this.openModal('modalProfile');
+  },
+
+  async handleProfilePhotoSelect(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    try {
+      const res = await API.uploadFile(file);
+      if (res.file && res.file.url) {
+        document.getElementById('profileAvatarUrl').value = res.file.url;
+        document.getElementById('profilePreviewImg').src = res.file.url;
+      }
+    } catch (err) {
+      alert('Failed to upload photo: ' + err.message);
+    }
+  },
+
+  previewAvatarUrl(url) {
+    const img = document.getElementById('profilePreviewImg');
+    if (url && url.trim()) {
+      img.src = url.trim();
+    } else {
+      img.src = 'https://api.dicebear.com/7.x/bottts/svg?seed=' + (this.currentUser?.username || 'user');
+    }
+  },
+
+  generateRandomAvatar() {
+    const seed = 'avatar_' + Math.floor(Math.random() * 1000000);
+    const styles = ['bottts', 'adventurer', 'fun-emoji', 'lorelei'];
+    const style = styles[Math.floor(Math.random() * styles.length)];
+    const newAvatar = `https://api.dicebear.com/7.x/${style}/svg?seed=${seed}`;
+    document.getElementById('profileAvatarUrl').value = newAvatar;
+    document.getElementById('profilePreviewImg').src = newAvatar;
+  },
+
+  async handleUpdateProfile(event) {
+    event.preventDefault();
+    const btn = document.getElementById('btnSaveProfile');
+    btn.disabled = true;
+    btn.innerHTML = `<span>Saving changes...</span>`;
+
+    const payload = {
+      fullName: document.getElementById('profileFullName').value.trim(),
+      email: document.getElementById('profileEmail').value.trim(),
+      avatar: document.getElementById('profileAvatarUrl').value.trim(),
+      bio: document.getElementById('profileBio').value.trim(),
+      phone: document.getElementById('profilePhone').value.trim()
+    };
+
+    const newPass = document.getElementById('profilePassword').value.trim();
+    if (newPass) {
+      if (newPass.length < 4) {
+        alert('Password must be at least 4 characters long.');
+        btn.disabled = false;
+        btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>Save Profile Changes</span>`;
+        lucide.createIcons();
+        return;
+      }
+      payload.password = newPass;
+    }
+
+    try {
+      const res = await API.updateProfile(payload);
+      this.currentUser = res.user;
+      this.renderNavUser();
+
+      // If on dashboard, refresh greeting & classes
+      const greeting = document.getElementById('welcomeGreeting');
+      if (greeting) {
+        greeting.textContent = `Welcome back, ${this.currentUser.fullName.split(' ')[0]}!`;
+      }
+      
+      this.closeModal('modalProfile');
+      alert('Profile and picture updated successfully!');
+
+      // Reload classes to reflect updated tutor name if applicable
+      await this.loadDashboard();
+    } catch (err) {
+      alert('Failed to update profile: ' + err.message);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>Save Profile Changes</span>`;
+      lucide.createIcons();
     }
   },
 

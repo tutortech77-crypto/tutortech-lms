@@ -98,6 +98,17 @@ const API = {
     this.clearSession();
   },
 
+  async updateProfile(payload) {
+    const data = await this.request('/api/auth/profile', {
+      method: 'PUT',
+      body: JSON.stringify(payload)
+    });
+    if (data.user) {
+      localStorage.setItem(this.USER_KEY, JSON.stringify(data.user));
+    }
+    return data;
+  },
+
   // Classes
   async getClasses() {
     return this.request('/api/classes');

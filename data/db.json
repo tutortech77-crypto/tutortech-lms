@@ -5,11 +5,11 @@
       "username": "admin",
       "email": "admin@tutortech.com",
       "password": "admin123",
-      "fullName": "Dr. Robert Vance (Director / Lead Tutor)",
+      "fullName": "TutorTech Founder & CEO",
       "role": "teacher",
       "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-      "phone": "+1 (555) 019-2834",
-      "bio": "Senior Tutor & Head of Science & Math at TutorTech"
+      "phone": "+1 (555) 999-8888",
+      "bio": "Owner & Academic Director at TutorTech"
     },
     {
       "id": "usr_stu_1",
@@ -74,7 +74,7 @@
       "name": "AP Physics 1: Mechanics & Energy",
       "subject": "Physics",
       "section": "Cohort Alpha - 2026",
-      "tutorName": "Dr. Robert Vance",
+      "tutorName": "TutorTech Founder & CEO",
       "tutorEmail": "admin@tutortech.com",
       "scheduleDays": "Mon, Wed, Fri",
       "scheduleTime": "04:30 PM - 05:45 PM",
@@ -108,7 +108,7 @@
       "name": "IB Chemistry HL: Bonding & Kinetics",
       "subject": "Chemistry",
       "section": "IB Diploma Year 1",
-      "tutorName": "Dr. Robert Vance",
+      "tutorName": "TutorTech Founder & CEO",
       "tutorEmail": "admin@tutortech.com",
       "scheduleDays": "Mon, Thu",
       "scheduleTime": "03:00 PM - 04:15 PM",
@@ -280,6 +280,8 @@
     "tt_61b6c73f14a9fe8e645c647a261e4924fef002bf149b64681f70046fc1ba0b4c": "usr_stu_1",
     "tt_354c00f379186d075e0a71122508e9508e519d937002bb80d3ddf60fb5d8579b": "usr_admin",
     "tt_1ce03c8830f5f41ee041f7d8373094203d980409d279e8621b1167af7744e197": "usr_stu_1792566261150",
-    "tt_e5dcf2c388135b8d960cd206d924a9c58ebb0073a61bb3cc4ef5e61bb9f88ca3": "usr_admin"
+    "tt_e5dcf2c388135b8d960cd206d924a9c58ebb0073a61bb3cc4ef5e61bb9f88ca3": "usr_admin",
+    "tt_bccb06b563203f06568bc4200c829bb81b40fc5510d2f24aa5acbfb42960236f": "usr_admin",
+    "tt_472cbf322620f2a5b1f31f7780feb39ebacb5caeb6f8738a5f66bffbfff7e665": "usr_admin"
   }
 }

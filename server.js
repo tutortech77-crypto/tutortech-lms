@@ -439,6 +439,55 @@ app.get('/api/auth/me', authMiddleware, (req, res) => {
   res.json({ user: safeUser });
 });
 
+// PUT /api/auth/profile - Update owner/tutor/student profile (name, avatar, email, phone, bio, password)
+app.put('/api/auth/profile', authMiddleware, (req, res) => {
+  const { fullName, avatar, email, phone, bio, password } = req.body;
+  const db = loadDB();
+
+  const userIndex = db.users.findIndex(u => u.id === req.user.id);
+  if (userIndex === -1) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  const user = db.users[userIndex];
+  const oldName = user.fullName;
+  const oldEmail = user.email;
+
+  if (fullName && fullName.trim()) user.fullName = fullName.trim();
+  if (avatar && avatar.trim()) user.avatar = avatar.trim();
+  if (email && email.trim()) user.email = email.trim();
+  if (phone !== undefined) user.phone = phone.trim();
+  if (bio !== undefined) user.bio = bio.trim();
+  if (password && password.trim().length >= 4) user.password = password.trim();
+
+  // If this user is a tutor/admin, automatically update their tutor name & email across classes they lead
+  if (user.role === 'teacher') {
+    (db.classes || []).forEach(cls => {
+      if (cls.tutorEmail === oldEmail || cls.tutorName === oldName) {
+        cls.tutorName = user.fullName;
+        cls.tutorEmail = user.email;
+      }
+    });
+
+    // Also update announcements author
+    (db.announcements || []).forEach(ann => {
+      if (ann.author === oldName) {
+        ann.author = user.fullName;
+        ann.avatar = user.avatar;
+      }
+    });
+  }
+
+  db.users[userIndex] = user;
+  saveDB(db);
+
+  const { password: _, ...safeUser } = user;
+  res.json({
+    message: 'Profile updated successfully!',
+    user: safeUser
+  });
+});
+
 // POST /api/auth/logout - Invalidate session token
 app.post('/api/auth/logout', authMiddleware, (req, res) => {
   const token = req.headers['authorization']?.replace('Bearer ', '') || req.headers['x-auth-token'];
